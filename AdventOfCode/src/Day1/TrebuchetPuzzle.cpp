@@ -1,26 +1,23 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
-#include "Trebuchet.h"
+#include "TrebuchetPuzzle.h"
 #include "Timer.h"
 
 namespace AoC2023 {
 
 	TrebuchetPuzzle::TrebuchetPuzzle()
+		: Puzzle("src/Day1/input", "src/Day1/info.txt")
 	{
-		this->ShowInfo();
-		std::ifstream file(this->s_InputFilePath.data(), std::ios_base::ate);
-		if (!file.is_open()) {
-			std::cout << "[Puzzle Error] Failed to open " << this->s_InputFilePath << ".\n";
-			return;
-		}
-		size_t inputSize = file.tellg();
-		file.seekg(0);
-		std::string input(inputSize, 0);
-		file.read(input.data(), inputSize);
-		file.close();
+		std::string input = this->LoadInput();
 
-		std::cout << "Calculating result for " << this->s_InputFilePath << ".\n";
+		std::cout << "Calculating result for " << this->m_InputFilePath << ".\n";
+		this->SolvePartOne(input);
+		this->SolvePartTwo(input);
+	}
+
+	void TrebuchetPuzzle::SolvePartOne(const std::string& input)
+	{
 		AoC::Timer timer;
 		size_t start = 0;
 		size_t end = input.find('\n');
@@ -36,10 +33,14 @@ namespace AoC2023 {
 		}
 		long long time = timer.GetTime();
 		std::cout << "Part One: " << m_PartOneSum << " in " << time << "ms.\n";
+	}
 
-		start = 0;
-		end = input.find('\n');
-		sum = 0;
+	void TrebuchetPuzzle::SolvePartTwo(const std::string& input)
+	{
+		AoC::Timer timer;
+		size_t start = 0;
+		size_t end = input.find('\n');
+		size_t sum = 0;
 		while (end != input.npos)
 		{
 			std::string_view line(input.data() + start, end - start);
@@ -47,7 +48,7 @@ namespace AoC2023 {
 			start = end + 1;
 			end = input.find('\n', start);
 		}
-		time = timer.GetTime();
+		long long time = timer.GetTime();
 		std::cout << "Part Two: " << m_PartTwoSum << " in " << time << "ms.\n";
 	}
 
@@ -207,22 +208,6 @@ namespace AoC2023 {
 			}
 		}
 		return std::stoi(values);
-	}
-
-	void TrebuchetPuzzle::ShowInfo()
-	{
-		std::ifstream file(this->s_InfoFilePath.data(), std::ios_base::ate);
-		if (!file.is_open()) {
-			std::cout << "[Puzzle Error] Failed to open " << this->s_InfoFilePath << ".\n";
-			return;
-		}
-		size_t infoSize = file.tellg();
-		file.seekg(0);
-		std::string info(infoSize, 0);
-		file.read(info.data(), infoSize);
-		file.close();
-
-		std::cout << info << "\n\n";
 	}
 
 	char TrebuchetPuzzle::ParseOne(std::string_view line, int& counter)

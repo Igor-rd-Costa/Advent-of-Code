@@ -14,9 +14,8 @@ namespace AoC2023 {
 		uint32_t FindNumberPartTwo(std::string_view line);
 
 	private:
-		const std::string_view s_InputFilePath = "src/Day1/input";
-		const std::string_view s_InfoFilePath = "src/Day1/info.txt";
-		virtual void ShowInfo() override;
+		void SolvePartOne(const std::string& input);
+		void SolvePartTwo(const std::string& input);
 		char ParseOne(std::string_view line, int& counter);
 		char ParseTwo(std::string_view line, int& counter);
 		char ParseThree(std::string_view line, int& counter);

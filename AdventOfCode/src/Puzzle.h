@@ -15,13 +15,18 @@ namespace AoC {
 	class Puzzle {
 	public:
 		~Puzzle() = default;
+
+		std::string LoadInput();
+
 		static Puzzle* Load(std::string_view puzzleName);
 		static Puzzle* Load(uint32_t puzzleDay);
 		static void ListPuzzles();
 	protected:
-		Puzzle() = default;
-		virtual void ShowInfo() = 0;
+		Puzzle(std::string_view inputPath, std::string_view infoPath);
+		void ShowInfo();
+		const std::string_view m_InputFilePath;
+		const std::string_view m_InfoFilePath;
 	private:
-		static std::array<PuzzleInfo, 1> s_Puzzles;
+		static std::array<PuzzleInfo, 2> s_Puzzles;
 	};
 }
