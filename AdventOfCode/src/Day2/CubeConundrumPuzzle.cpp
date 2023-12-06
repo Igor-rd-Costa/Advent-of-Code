@@ -8,7 +8,6 @@ namespace AoC2023 {
 		: Puzzle("src/Day2/input", "src/Day2/info.txt")
 	{
 		std::string input = this->LoadInput();
-		std::cout << "Calculating result for " << this->m_InputFilePath << ".\n";
 		this->SolvePartOne(input);
 		this->SolvePartTwo(input);
 	}

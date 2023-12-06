@@ -3,13 +3,15 @@
 #include "Puzzle.h"
 #include "Day1/TrebuchetPuzzle.h"
 #include "Day2/CubeConundrumPuzzle.h"
+#include "Day3/GearRatiosPuzzle.h"
 
 namespace AoC {
 
-	std::array<PuzzleInfo, 2> Puzzle::s_Puzzles = {
+	std::array<PuzzleInfo, 3> Puzzle::s_Puzzles = {
 		{
-			{ 1, "Trebuchet", []() { return reinterpret_cast<Puzzle*>(new AoC2023::TrebuchetPuzzle()); } }, 
-			{ 2, "Cube Conundrum", []() { return reinterpret_cast<Puzzle*>(new AoC2023::CubeConundrumPuzzle()); } }
+			{ 1, "Trebuchet", []() { return reinterpret_cast<Puzzle*>(new AoC2023::TrebuchetPuzzle()); } },
+			{ 2, "Cube Conundrum", []() { return reinterpret_cast<Puzzle*>(new AoC2023::CubeConundrumPuzzle()); } },
+			{ 3, "Gear Ratios", []() { return reinterpret_cast<Puzzle*>(new AoC2023::GearRatiosPuzzle()); } }
 		}
 	};
 
@@ -77,6 +79,7 @@ namespace AoC {
 		std::string input(inputSize, 0);
 		file.read(input.data(), inputSize);
 		file.close();
+		std::cout << "Calculating result for " << this->m_InputFilePath << ".\n";
 		return std::move(input);
 	}
 }
