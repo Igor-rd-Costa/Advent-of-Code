@@ -136,6 +136,7 @@
     <ClCompile Include="src\Day1\TrebuchetPuzzle.cpp" />
     <ClCompile Include="src\Day2\CubeConundrumPuzzle.cpp" />
     <ClCompile Include="src\Day3\GearRatiosPuzzle.cpp" />
+    <ClCompile Include="src\Day4\ScratchcardsPuzzle.cpp" />
     <ClCompile Include="src\EntryPoint.cpp" />
     <ClCompile Include="src\Puzzle.cpp" />
     <ClCompile Include="src\Timer.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="src\Day1\TrebuchetPuzzle.h" />
     <ClInclude Include="src\Day2\CubeConundrumPuzzle.h" />
     <ClInclude Include="src\Day3\GearRatiosPuzzle.h" />
+    <ClInclude Include="src\Day4\ScratchcardsPuzzle.h" />
     <ClInclude Include="src\Puzzle.h" />
     <ClInclude Include="src\Timer.h" />
   </ItemGroup>
@@ -151,11 +153,13 @@
     <None Include="src\Day1\input" />
     <None Include="src\Day2\input" />
     <None Include="src\Day3\input" />
+    <None Include="src\Day4\input" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="src\Day1\info.txt" />
     <Text Include="src\Day2\info.txt" />
     <Text Include="src\Day3\info.txt" />
+    <Text Include="src\Day4\info.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
