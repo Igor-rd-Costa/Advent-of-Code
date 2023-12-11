@@ -20,8 +20,8 @@ namespace AoC2023 {
 		this->GetSeeds(sections[0]);
 
 		this->ParseSectionsOne(sections);
-		size_t& smallest = m_Seeds[0];
-		for (size_t& seed : m_Seeds)
+		size_t smallest = m_Seeds[0];
+		for (size_t seed : m_Seeds)
 		{
 			if (seed < smallest)
 				smallest = seed;
@@ -82,42 +82,39 @@ namespace AoC2023 {
 		{
 			std::vector<std::string> lines = this->SplitLines(sections[index]);
 			std::vector<SeedRange> temp{};
-		for (size_t i = 0; i < m_SeedRanges.size(); i++)
-		{
-			SeedRange& seedRange = m_SeedRanges[i];
-			bool found = false;
-			for (size_t j = 1; j < lines.size(); j++)
+			for (size_t i = 0; i < m_SeedRanges.size(); i++)
 			{
-				Range range = this->GetRangeFromLine(lines[j]);
-
-				size_t rangeEnd = (seedRange.start + seedRange.length - 1);
-
-				if (seedRange.start >= range.srcStart && seedRange.start < range.srcStart + range.length)
+				SeedRange& seedRange = m_SeedRanges[i];
+				bool found = false;
+				for (size_t j = 1; j < lines.size(); j++)
 				{
-					found = true;
-					if (rangeEnd < range.srcStart + range.length)
+					Range range = this->GetRangeFromLine(lines[j]);
+					if (seedRange.start >= range.srcStart && seedRange.start < range.srcStart + range.length)
 					{
-						temp.emplace_back(SeedRange{ range.dstStart + (seedRange.start - range.srcStart), seedRange.length});
-						break;
-					}
-					else 
-					{
-						SeedRange newRange = { seedRange.start, (range.srcStart + range.length) - seedRange.start };
-						temp.emplace_back(SeedRange{ range.dstStart + (newRange.start - range.srcStart), newRange.length });
-						SeedRange remainder = { range.srcStart + range.length,(seedRange.start + seedRange.length) - (range.srcStart + range.length) };
-						m_SeedRanges.push_back(remainder);
-						
-						break;
+						found = true;
+						if ((seedRange.start + seedRange.length - 1) < range.srcStart + range.length)
+						{
+							temp.emplace_back(SeedRange{ range.dstStart + (seedRange.start - range.srcStart), seedRange.length});
+							break;
+						}
+						else 
+						{
+							// Splits the range and inserts the part that falls outside 
+							// of the destination range back into the src range to be parsed.
+							SeedRange newRange = { seedRange.start, (range.srcStart + range.length) - seedRange.start };
+							temp.emplace_back(SeedRange{ range.dstStart + (newRange.start - range.srcStart), newRange.length });
+							m_SeedRanges.emplace_back(SeedRange{ 
+								range.srcStart + range.length,(seedRange.start + seedRange.length) - (range.srcStart + range.length) 
+							});
+							break;
+						}
 					}
 				}
+				if (!found)
+					temp.push_back(seedRange);
+
 			}
-
-			if (!found)
-				temp.push_back(seedRange);
-
-		}
-
-		m_SeedRanges = temp;
+			m_SeedRanges = temp;
 		}
 	}
 
