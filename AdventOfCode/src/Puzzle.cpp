@@ -5,15 +5,17 @@
 #include "Day2/CubeConundrumPuzzle.h"
 #include "Day3/GearRatiosPuzzle.h"
 #include "Day4/ScratchcardsPuzzle.h"
+#include "Day5/IfYouGiveASeedAFertilizerPuzzle.h"
 
 namespace AoC {
 
-	std::array<PuzzleInfo, 4> Puzzle::s_Puzzles = {
+	std::array<PuzzleInfo, 5> Puzzle::s_Puzzles = {
 		{
 			{ 1, "Trebuchet", []() { return reinterpret_cast<Puzzle*>(new AoC2023::TrebuchetPuzzle()); } },
 			{ 2, "Cube Conundrum", []() { return reinterpret_cast<Puzzle*>(new AoC2023::CubeConundrumPuzzle()); } },
 			{ 3, "Gear Ratios", []() { return reinterpret_cast<Puzzle*>(new AoC2023::GearRatiosPuzzle()); } },
-			{ 4, "Scratchcards", []() { return reinterpret_cast<Puzzle*>(new AoC2023::ScratchcardsPuzzle()); } }
+			{ 4, "Scratchcards", []() { return reinterpret_cast<Puzzle*>(new AoC2023::ScratchcardsPuzzle()); } },
+			{ 5, "If You Give a Seed a Fertilizer", []() { return reinterpret_cast<Puzzle*>(new AoC2023::IfYouGiveASeedAFertilizerPuzzle()); } }
 		}
 	};
 
@@ -37,14 +39,14 @@ namespace AoC {
 
 	void Puzzle::ShowInfo()
 	{
-		std::ifstream file(this->m_InfoFilePath.data(), std::ios_base::ate);
+		std::ifstream file(this->m_InfoFilePath.data(), std::ios::ate | std::ios::binary);
 		if (!file.is_open()) {
 			std::cout << "[Puzzle Error] Failed to open " << this->m_InfoFilePath << ".\n";
 			return;
 		}
 		size_t infoSize = file.tellg();
 		file.seekg(0);
-		std::string info(infoSize, 0);
+		std::string info(infoSize, 'a');
 		file.read(info.data(), infoSize);
 		file.close();
 
@@ -71,7 +73,7 @@ namespace AoC {
 	}
 	std::string Puzzle::LoadInput()
 	{
-		std::ifstream file(this->m_InputFilePath.data(), std::ios_base::ate);
+		std::ifstream file(this->m_InputFilePath.data(), std::ios::ate | std::ios::binary);
 		if (!file.is_open()) {
 			std::cout << "[Puzzle Error] Failed to open " << this->m_InputFilePath << ".\n";
 			return "";
@@ -82,6 +84,6 @@ namespace AoC {
 		file.read(input.data(), inputSize);
 		file.close();
 		std::cout << "Calculating result for " << this->m_InputFilePath << ".\n";
-		return std::move(input);
+		return input;
 	}
 }
