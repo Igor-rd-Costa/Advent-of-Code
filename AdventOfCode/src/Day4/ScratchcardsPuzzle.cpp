@@ -19,7 +19,7 @@ namespace AoC2023 {
 	{
 		AoC::Timer timer;
 		size_t pointSum = 0;
-		for (int i = 0; i < input.length(); i++)
+		for (size_t i = 0; i < input.length(); i++)
 		{
 			if (input[i] == ':')
 			{
@@ -38,7 +38,7 @@ namespace AoC2023 {
 					while (input[i] == ' ')
 						i++;
 
-					uint32_t start = i;
+					size_t start = i;
 					while (input[i] != ' ')
 						i++;
 
@@ -57,7 +57,7 @@ namespace AoC2023 {
 					while (input[i] == ' ')
 						i++;
 
-					uint32_t start = i;
+					size_t start = i;
 					while (input[i] != ' ' && input[i] != '\n')
 						i++;
 
@@ -100,7 +100,7 @@ namespace AoC2023 {
 		size_t cardSum = 0;
 		uint32_t cardId = 0;
 		std::unordered_map<uint32_t, uint32_t> cards;
-		for (int i = 0; i < input.length(); i++)
+		for (size_t i = 0; i < input.length(); i++)
 		{
 			if (input[i] == ':')
 			{
@@ -121,7 +121,7 @@ namespace AoC2023 {
 					while (input[i] == ' ')
 						i++;
 
-					uint32_t start = i;
+					size_t start = i;
 					while (input[i] != ' ')
 						i++;
 
@@ -140,7 +140,7 @@ namespace AoC2023 {
 					while (input[i] == ' ')
 						i++;
 
-					uint32_t start = i;
+					size_t start = i;
 					while (input[i] != ' ' && input[i] != '\n')
 						i++;
 

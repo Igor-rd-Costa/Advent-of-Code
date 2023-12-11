@@ -108,12 +108,12 @@ namespace AoC2023 {
 				return 0;
 		}
 
-		for (int i = (index - m_RowLength - 1); i < (index - m_RowLength - 1) + 3; i++)
+		for (size_t i = (index - m_RowLength - 1); i < (index - m_RowLength - 1) + 3; i++)
 		{
 
 			if (std::isdigit(input[i]))
 			{
-				int strStart = i;
+				size_t strStart = i;
 				while (std::isdigit(input[strStart - 1]))
 				{
 					strStart--;
@@ -128,11 +128,11 @@ namespace AoC2023 {
 			}
 		}
 
-		for (int i = (index + m_RowLength - 1); i < (index + m_RowLength - 1) + 3; i++)
+		for (size_t i = (index + m_RowLength - 1); i < (index + m_RowLength - 1) + 3; i++)
 		{
 			if (std::isdigit(input[i]))
 			{
-				int strStart = i;
+				size_t strStart = i;
 				while (std::isdigit(input[strStart - 1]))
 				{
 					strStart--;

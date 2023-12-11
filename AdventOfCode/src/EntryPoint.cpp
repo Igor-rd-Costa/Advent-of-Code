@@ -6,10 +6,10 @@ int main() {
 	char inputBuffer[50] = {};
 	std::string buffer;
 	bool isRunning = true;
-	std::cout << "Advent of Code Puzzles:\n";
-	AoC::Puzzle::ListPuzzles();
 	while (isRunning) {
-		std::cout << "\nType the name or number of the puzzle you wish to load. /help for help.\n";
+		std::cout << "Advent of Code Puzzles:\n";
+		AoC::Puzzle::ListPuzzles();
+		std::cout << "\nType number of the puzzle you wish to load. /help for help.\n";
 		std::cin >> buffer;
 		if (buffer[0] == '/') {
 			if (buffer == "/help") {
@@ -28,18 +28,18 @@ int main() {
 		else
 		{
 			AoC::Puzzle* puzzle = nullptr;
+			int puzzleNumber = 0;
 			try 
 			{
-				int puzzleNumber = std::stoi(buffer);
+				puzzleNumber = std::stoi(buffer);
 				puzzle = AoC::Puzzle::Load(puzzleNumber);
+				delete puzzle;
 			}
 			catch (std::invalid_argument e)
 			{
-				puzzle = AoC::Puzzle::Load(buffer);
+				std::cout << "Invalid command.\n";
 			}
-			delete puzzle;
-			std::cout << "\n\nAdvent of Code Puzzles:\n";
-			AoC::Puzzle::ListPuzzles();
+			std::cout << "\n";
 		}
 	}
 }

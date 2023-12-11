@@ -33,7 +33,6 @@ namespace AoC2023 {
 		void ParseSectionsTwo(const std::vector<std::string>& sections);
 		
 		std::vector<std::string> GetSections(const std::string& input);
-		std::vector<std::string> SplitLines(const std::string& text);
 		Range GetRangeFromLine(const std::string& line);
 		std::vector<size_t> m_Seeds{};
 		std::vector<SeedRange> m_SeedRanges;

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "IfYouGiveASeedAFertilizerPuzzle.h"
 #include "Timer.h"
+#include "Utils.h"
 
 namespace AoC2023 {
 
@@ -80,7 +81,7 @@ namespace AoC2023 {
 	{
 		for (uint32_t index = 1; index < sections.size(); index++)
 		{
-			std::vector<std::string> lines = this->SplitLines(sections[index]);
+			std::vector<std::string> lines = AoC::SplitLines(sections[index]);
 			std::vector<SeedRange> temp{};
 			for (size_t i = 0; i < m_SeedRanges.size(); i++)
 			{
@@ -141,7 +142,7 @@ namespace AoC2023 {
 	{
 		for (size_t i = 1; i < sections.size(); i++)
 		{
-			std::vector<std::string> lines = this->SplitLines(sections[i]);
+			std::vector<std::string> lines = AoC::SplitLines(sections[i]);
 			
 			std::vector<Range> ranges;
 			for (size_t j = 1; j < lines.size(); j++)
@@ -199,37 +200,6 @@ namespace AoC2023 {
 			start = end + 2;
 		}
 		return sections;
-	}
-
-	std::vector<std::string> IfYouGiveASeedAFertilizerPuzzle::SplitLines(const std::string& text)
-	{
-		std::vector<std::string> lines;
-
-		size_t start = 0;
-		size_t end = text.find('\n');
-		if (end == text.npos)
-		{
-			lines.push_back(text);
-			return lines;
-		}
-		
-		while (end != text.npos)
-		{
-			std::string line = text.substr(start, end - start);
-			lines.push_back(line);
-
-			start = end + 1;
-			end = text.find('\n', start);
-		}
-
-		if (end == text.npos)
-		{	
-			end = text.length();
-			std::string line = text.substr(start, end - start);
-			lines.push_back(line);
-		}
-
-		return lines;
 	}
 
 	Range IfYouGiveASeedAFertilizerPuzzle::GetRangeFromLine(const std::string& line)

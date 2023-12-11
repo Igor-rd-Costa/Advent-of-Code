@@ -20,7 +20,7 @@ namespace AoC2023 {
 		uint32_t redCubes = 0;
 		uint32_t greenCubes = 0;
 		uint32_t blueCubes = 0;
-		for (uint32_t i = 0; i < input.length(); i++)
+		for (size_t i = 0; i < input.length(); i++)
 		{
 			if (input[i] == ';') // end round
 			{
@@ -41,8 +41,8 @@ namespace AoC2023 {
 
 			if (input[i] == ':' || input[i] == ',' || input[i] == ';')
 			{
-				int numStart = ++i;
-				int numEnd = input.find(' ', numStart + 1);
+				size_t numStart = ++i;
+				size_t numEnd = input.find(' ', numStart + 1);
 				uint32_t cubeCount = std::stoi(input.substr(numStart, numEnd - numStart));
 				i = numEnd;
 				if (input[i + 1] == 'r')
@@ -110,7 +110,7 @@ namespace AoC2023 {
 		AoC::Timer timer;
 		uint32_t powerSum = 0;
 		uint32_t minRed = 0, minGreen = 0, minBlue = 0;
-		for (uint32_t i = 0; i < input.length(); i++)
+		for (size_t i = 0; i < input.length(); i++)
 		{
 			if (input[i] == '\n') // end game
 			{
@@ -122,8 +122,8 @@ namespace AoC2023 {
 
 			if (input[i] == ':' || input[i] == ',' || input[i] == ';')
 			{
-				int numStart = ++i;
-				int numEnd = input.find(' ', numStart + 1);
+				size_t numStart = ++i;
+				size_t numEnd = input.find(' ', numStart + 1);
 				uint32_t cubeCount = std::stoi(input.substr(numStart, numEnd - numStart));
 				i = numEnd;
 				if (input[i + 1] == 'r')

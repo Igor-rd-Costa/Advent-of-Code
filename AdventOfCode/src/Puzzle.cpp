@@ -6,16 +6,18 @@
 #include "Day3/GearRatiosPuzzle.h"
 #include "Day4/ScratchcardsPuzzle.h"
 #include "Day5/IfYouGiveASeedAFertilizerPuzzle.h"
+#include "Day6/WaitForItPuzzle.h"
 
 namespace AoC {
 
-	std::array<PuzzleInfo, 5> Puzzle::s_Puzzles = {
+	std::array<PuzzleInfo, 6> Puzzle::s_Puzzles = {
 		{
 			{ 1, "Trebuchet", []() { return reinterpret_cast<Puzzle*>(new AoC2023::TrebuchetPuzzle()); } },
 			{ 2, "Cube Conundrum", []() { return reinterpret_cast<Puzzle*>(new AoC2023::CubeConundrumPuzzle()); } },
 			{ 3, "Gear Ratios", []() { return reinterpret_cast<Puzzle*>(new AoC2023::GearRatiosPuzzle()); } },
 			{ 4, "Scratchcards", []() { return reinterpret_cast<Puzzle*>(new AoC2023::ScratchcardsPuzzle()); } },
-			{ 5, "If You Give a Seed a Fertilizer", []() { return reinterpret_cast<Puzzle*>(new AoC2023::IfYouGiveASeedAFertilizerPuzzle()); } }
+			{ 5, "If You Give a Seed a Fertilizer", []() { return reinterpret_cast<Puzzle*>(new AoC2023::IfYouGiveASeedAFertilizerPuzzle()); } },
+			{ 6, "Wait For It", []() { return reinterpret_cast<Puzzle*>(new AoC2023::WaitForItPuzzle()); } }
 		}
 	};
 

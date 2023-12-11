@@ -16,6 +16,6 @@ namespace AoC2023 {
 		uint32_t GetGearRation(const std::string& input, int index);
 		bool IsSymbol(char character);
 
-		int m_RowLength;
+		size_t m_RowLength;
 	};
 }
