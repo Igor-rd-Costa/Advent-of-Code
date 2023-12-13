@@ -28,6 +28,6 @@ namespace AoC {
 		const std::string_view m_InputFilePath;
 		const std::string_view m_InfoFilePath;
 	private:
-		static std::array<PuzzleInfo, 6> s_Puzzles;
+		static std::array<PuzzleInfo, 7> s_Puzzles;
 	};
 }

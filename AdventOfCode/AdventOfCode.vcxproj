@@ -139,6 +139,7 @@
     <ClCompile Include="src\Day4\ScratchcardsPuzzle.cpp" />
     <ClCompile Include="src\Day5\IfYouGiveASeedAFertilizerPuzzle.cpp" />
     <ClCompile Include="src\Day6\WaitForItPuzzle.cpp" />
+    <ClCompile Include="src\Day7\CamelCardsPuzzle.cpp" />
     <ClCompile Include="src\EntryPoint.cpp" />
     <ClCompile Include="src\Puzzle.cpp" />
     <ClCompile Include="src\Timer.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="src\Day4\ScratchcardsPuzzle.h" />
     <ClInclude Include="src\Day5\IfYouGiveASeedAFertilizerPuzzle.h" />
     <ClInclude Include="src\Day6\WaitForItPuzzle.h" />
+    <ClInclude Include="src\Day7\CamelCardsPuzzle.h" />
     <ClInclude Include="src\Utils.h" />
     <ClInclude Include="src\Puzzle.h" />
     <ClInclude Include="src\Timer.h" />
@@ -162,6 +164,7 @@
     <None Include="src\Day4\input" />
     <None Include="src\Day5\input" />
     <None Include="src\Day6\input" />
+    <None Include="src\Day7\input" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="src\Day1\info.txt" />
@@ -170,6 +173,7 @@
     <Text Include="src\Day4\info.txt" />
     <Text Include="src\Day5\info.txt" />
     <Text Include="src\Day6\info.txt" />
+    <Text Include="src\Day7\info.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
