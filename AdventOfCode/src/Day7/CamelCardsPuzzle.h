@@ -27,11 +27,12 @@ namespace AoC2023 {
 		static char GetCardTypeOne(char card);
 		static char GetCardTypeTwo(char card);
 	private:
-		void SolvePartOne(const std::string& input);
+		virtual void SolvePartOne(const std::string& input) override;
+		virtual void SolvePartTwo(const std::string& input) override;
+		
 		HandType ParseHandTypeOne(const std::string& hand);
 		void SortHandsOne();
 
-		void SolvePartTwo(const std::string& input);
 		HandType ParseHandTypeTwo(const std::string& hand);
 		uint32_t CountJokers(CardInfo* info);
 		void SortHandsTwo();

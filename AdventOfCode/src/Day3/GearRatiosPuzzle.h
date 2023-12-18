@@ -10,8 +10,9 @@ namespace AoC2023 {
 		~GearRatiosPuzzle() = default;
 
 	private:
-		void SolvePartOne(const std::string& input);
-		void SolvePartTwo(const std::string& input);
+		virtual void SolvePartOne(const std::string& input) override;
+		virtual void SolvePartTwo(const std::string& input) override;
+
 		bool IsNumberNearSymbol(const std::string& input, int start, int length);
 		uint32_t GetGearRation(const std::string& input, int index);
 		bool IsSymbol(char character);

@@ -14,8 +14,9 @@ namespace AoC2023 {
 		uint32_t FindNumberPartTwo(std::string_view line);
 
 	private:
-		void SolvePartOne(const std::string& input);
-		void SolvePartTwo(const std::string& input);
+		virtual void SolvePartOne(const std::string& input) override;
+		virtual void SolvePartTwo(const std::string& input) override;
+		
 		char ParseOne(std::string_view line, int& counter);
 		char ParseTwo(std::string_view line, int& counter);
 		char ParseThree(std::string_view line, int& counter);

@@ -16,8 +16,8 @@ namespace AoC2023 {
 		~WaitForItPuzzle() = default;
 
 	private:
-		void SolvePartOne(const std::string& input);
-		void SolvePartTwo(const std::string& input);
+		virtual void SolvePartOne(const std::string& input) override;
+		virtual void SolvePartTwo(const std::string& input) override;
 		void ParseRaceInfo(const std::vector<std::string>& lines);
 
 		std::array<RaceInfo, 4> m_Races{};

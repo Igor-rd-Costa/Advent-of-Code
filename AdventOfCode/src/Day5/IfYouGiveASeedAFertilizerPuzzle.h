@@ -24,11 +24,12 @@ namespace AoC2023 {
 		~IfYouGiveASeedAFertilizerPuzzle() = default;
 
 	private:
-		void SolvePartOne(const std::string& input);
+		virtual void SolvePartOne(const std::string& input) override;
+		virtual void SolvePartTwo(const std::string& input) override;
+		
 		void GetSeeds(const std::string& input);
 		void ParseSectionsOne(const std::vector<std::string>& sections);
 
-		void SolvePartTwo(const std::string& input);
 		void GetSeedRanges(const std::string& input);
 		void ParseSectionsTwo(const std::vector<std::string>& sections);
 		

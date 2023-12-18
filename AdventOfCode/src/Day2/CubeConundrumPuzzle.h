@@ -11,8 +11,8 @@ namespace AoC2023 {
 		~CubeConundrumPuzzle() = default;
 
 	private:
-		void SolvePartOne(const std::string& input);
-		void SolvePartTwo(const std::string& input);
+		virtual void SolvePartOne(const std::string& input) override; 
+		virtual void SolvePartTwo(const std::string& input) override; 
 
 		const uint32_t m_MaxRed = 12;
 		const uint32_t m_MaxGreen = 13;

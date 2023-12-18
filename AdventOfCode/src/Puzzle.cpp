@@ -8,11 +8,13 @@
 #include "Day5/IfYouGiveASeedAFertilizerPuzzle.h"
 #include "Day6/WaitForItPuzzle.h"
 #include "Day7/CamelCardsPuzzle.h"
+#include "Day8/HauntedWastelandPuzzle.h"
+#include "Day9/MirageMaintenancePuzzle.h"
 
 
 namespace AoC {
 
-	std::array<PuzzleInfo, 7> Puzzle::s_Puzzles = {
+	std::array<PuzzleInfo, 9> Puzzle::s_Puzzles = {
 		{
 			{ 1, "Trebuchet", []() { return reinterpret_cast<Puzzle*>(new AoC2023::TrebuchetPuzzle()); } },
 			{ 2, "Cube Conundrum", []() { return reinterpret_cast<Puzzle*>(new AoC2023::CubeConundrumPuzzle()); } },
@@ -20,7 +22,9 @@ namespace AoC {
 			{ 4, "Scratchcards", []() { return reinterpret_cast<Puzzle*>(new AoC2023::ScratchcardsPuzzle()); } },
 			{ 5, "If You Give a Seed a Fertilizer", []() { return reinterpret_cast<Puzzle*>(new AoC2023::IfYouGiveASeedAFertilizerPuzzle()); } },
 			{ 6, "Wait For It", []() { return reinterpret_cast<Puzzle*>(new AoC2023::WaitForItPuzzle()); } },
-			{ 7, "Camel Cards", []() { return reinterpret_cast<Puzzle*>(new AoC2023::CamelCardsPuzzle()); } }
+			{ 7, "Camel Cards", []() { return reinterpret_cast<Puzzle*>(new AoC2023::CamelCardsPuzzle()); } },
+			{ 8, "Haunted Wasteland", []() { return reinterpret_cast<Puzzle*>(new AoC2023::HauntedWastelandPuzzle()); } },
+			{ 9, "Mirage Maintenance", []() { return reinterpret_cast<Puzzle*>(new AoC2023::MirageMaintenancePuzzle()); } }
 		}
 	};
 
@@ -91,4 +95,5 @@ namespace AoC {
 		std::cout << "Calculating result for " << this->m_InputFilePath << ".\n";
 		return input;
 	}
+
 }

@@ -59,9 +59,10 @@ namespace AoC2023 {
 	{
 		for (int i = end; i > start; i--)
 		{
-			if ((i - m_RowLength) >= 0 && this->IsSymbol(input[i - m_RowLength - 1]))
+			if ((i - (int)m_RowLength) >= 0)
 			{
-				return true;
+				if (this->IsSymbol(input[i - m_RowLength - 1]))
+					return true;
 			}
 		}
 

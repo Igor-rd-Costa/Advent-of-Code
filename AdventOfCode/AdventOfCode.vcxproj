@@ -74,6 +74,10 @@
     <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin-int\$(Platform)-$(Configuration)\</IntDir>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin-int\$(Platform)-$(Configuration)\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -124,6 +128,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>src;</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,6 +147,8 @@
     <ClCompile Include="src\Day5\IfYouGiveASeedAFertilizerPuzzle.cpp" />
     <ClCompile Include="src\Day6\WaitForItPuzzle.cpp" />
     <ClCompile Include="src\Day7\CamelCardsPuzzle.cpp" />
+    <ClCompile Include="src\Day8\HauntedWastelandPuzzle.cpp" />
+    <ClCompile Include="src\Day9\MirageMaintenancePuzzle.cpp" />
     <ClCompile Include="src\EntryPoint.cpp" />
     <ClCompile Include="src\Puzzle.cpp" />
     <ClCompile Include="src\Timer.cpp" />
@@ -153,6 +162,8 @@
     <ClInclude Include="src\Day5\IfYouGiveASeedAFertilizerPuzzle.h" />
     <ClInclude Include="src\Day6\WaitForItPuzzle.h" />
     <ClInclude Include="src\Day7\CamelCardsPuzzle.h" />
+    <ClInclude Include="src\Day8\HauntedWastelandPuzzle.h" />
+    <ClInclude Include="src\Day9\MirageMaintenancePuzzle.h" />
     <ClInclude Include="src\Utils.h" />
     <ClInclude Include="src\Puzzle.h" />
     <ClInclude Include="src\Timer.h" />
@@ -165,6 +176,8 @@
     <None Include="src\Day5\input" />
     <None Include="src\Day6\input" />
     <None Include="src\Day7\input" />
+    <None Include="src\Day8\input" />
+    <None Include="src\Day9\input" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="src\Day1\info.txt" />
@@ -174,6 +187,8 @@
     <Text Include="src\Day5\info.txt" />
     <Text Include="src\Day6\info.txt" />
     <Text Include="src\Day7\info.txt" />
+    <Text Include="src\Day8\info.txt" />
+    <Text Include="src\Day9\info.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

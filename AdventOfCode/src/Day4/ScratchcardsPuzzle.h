@@ -10,7 +10,7 @@ namespace AoC2023 {
 		~ScratchcardsPuzzle() = default;
 
 	private:
-		void SolvePartOne(const std::string& input);
-		void SolvePartTwo(const std::string& input);
+		virtual void SolvePartOne(const std::string& input) override;
+		virtual void SolvePartTwo(const std::string& input) override;
 	};
 }
